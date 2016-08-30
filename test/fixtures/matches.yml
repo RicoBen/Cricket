@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-08-02
+  home: 1
+  away: 1
+  total_overs: 1
+  first_to_bat: 1
+
+two:
+  date: 2016-08-02
+  home: 1
+  away: 1
+  total_overs: 1
+  first_to_bat: 1
