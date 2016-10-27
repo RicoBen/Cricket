@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830093259) do
+ActiveRecord::Schema.define(version: 20161027095419) do
 
   create_table "balls", force: :cascade do |t|
     t.integer  "bowler"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20160830093259) do
     t.boolean  "done"
     t.boolean  "declared"
     t.string   "out"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

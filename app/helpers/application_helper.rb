@@ -35,7 +35,59 @@ module ApplicationHelper
        else
          Player.find(player_id).full_name
      end
-   end 
+   end
+   def player_batting_order(player_id, match_id)
+       if player_id.blank? 
+         else
+       Matchteam.where(player_id: player_id, match_id: match_id).first.batting_order
+     end
+     end
+     def player_name_abbrv(player_id)
+         if player_id.blank? 
+           else
+         player = Player.find(player_id)
+         return player.surname + ', ' + player.first_name[0,1] 
+       end
+       end
+       def runs_scored_per_batsman(player_id, match_id)
+           if match_id.blank? 
+             else
+                if Ball.where(match_id: match_id, batsman: player_id).any?
+             Ball.where(match_id: match_id, batsman: player_id, done: true).pluck(:runs).sum
+           else
+             0
+             end
+          end
+         end
+         def runs_scored_per_bowler(player_id, match_id)
+             if match_id.blank? 
+               else
+                 if Ball.where(match_id: match_id, bowler: player_id).any?
+               Ball.where(match_id: match_id, bowler: player_id, done: true).pluck(:runs).sum
+             end
+            end
+           end
+           def out_per_bowler(player_id, match_id)
+               if match_id.blank? 
+                 else
+                   if Ball.where(match_id: match_id, bowler: player_id, wicket: true).any?
+                     Ball.where(match_id: match_id, bowler: player_id, wicket: true).count
+                   else
+                     0
+                   end
+              end
+             end 
+             def out_per_batsman(player_id, match_id)
+                 if match_id.blank? 
+                   else
+                     if Ball.where(match_id: match_id,batsman: player_id, wicket: true).any?
+                       Ball.where(match_id: match_id, batsman: player_id, wicket: true, done: true).first.out
+                     else
+                       0
+                     end
+                end
+               end 
+  
   
   
 end

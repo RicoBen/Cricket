@@ -19,8 +19,8 @@
     <% @matches.each do |match| %>
       <tr>
         <td><%= match.date %></td>
-        <td><%= team_name(match.home) %></td>
-        <td><%= team_name(match.away) %></td>
+        <td><%= team_full_name(match.home) %></td>
+        <td><%= team_full_name(match.away) %></td>
         <td><%= match.total_overs %></td>
         <td><%= team_name(match.first_to_bat) %></td>
         <td><%= link_to 'Scoreboard', scoreboard_match_path(match) %></td>
